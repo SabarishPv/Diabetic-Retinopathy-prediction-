@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DR Detection — Retinal Analysis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+
+<body>
+
+    <div class="scanline"></div>
+
+    <header>
+        <div class="logo">
+            <span class="logo-icon">◎</span>
+            <span class="logo-text">RetinaScan<span class="logo-sub">DR</span></span>
+        </div>
+        <div class="header-meta">
+            <span class="badge">EfficientNetB0</span>
+            <span class="badge">APTOS 2019</span>
+            <span class="badge live">● LIVE</span>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Diabetic Retinopathy<br><span class="accent">Detection System</span></h1>
+            <p class="subtitle">Upload a retinal fundus image. The model classifies DR severity across 5 stages with
+                ~79% accuracy.</p>
+        </section>
+
+        <div class="panel-grid">
+
+            <!-- Upload Panel -->
+            <div class="panel upload-panel">
+                <div class="panel-label">01 / INPUT</div>
+                <div class="drop-zone" id="dropZone">
+                    <div class="drop-inner">
+                        <div class="eye-icon">
+                            <svg viewBox="0 0 80 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 20 C20 2, 60 2, 78 20 C60 38, 20 38, 2 20Z" stroke="currentColor"
+                                    stroke-width="2" fill="none" />
+                                <circle cx="40" cy="20" r="10" stroke="currentColor" stroke-width="2" fill="none" />
+                                <circle cx="40" cy="20" r="4" fill="currentColor" opacity="0.5" />
+                            </svg>
+                        </div>
+                        <p class="drop-text">Drop retinal image here</p>
+                        <p class="drop-sub">PNG · JPG · JPEG</p>
+                        <label class="btn-upload" for="fileInput">Browse Files</label>
+                        <input type="file" id="fileInput" accept=".png,.jpg,.jpeg" hidden />
+                    </div>
+                </div>
+
+                <div class="preview-area" id="previewArea" style="display:none">
+                    <img id="previewImg" src="" alt="Preview" />
+                    <button class="btn-clear" id="clearBtn">✕ Clear</button>
+                </div>
+
+                <button class="btn-analyze" id="analyzeBtn" disabled>
+                    <span class="btn-text">Analyze Image</span>
+                    <span class="btn-arrow">→</span>
+                </button>
+            </div>
+
+            <!-- Result Panel -->
+            <div class="panel result-panel" id="resultPanel">
+                <div class="panel-label">02 / RESULT</div>
+
+                <div class="idle-state" id="idleState">
+                    <div class="idle-graphic">
+                        <div class="pulse-ring"></div>
+                        <div class="pulse-ring delay1"></div>
+                        <div class="pulse-ring delay2"></div>
+                        <span class="idle-icon">⬡</span>
+                    </div>
+                    <p>Awaiting image analysis…</p>
+                </div>
+
+                <div class="loading-state" id="loadingState" style="display:none">
+                    <div class="scan-bar"></div>
+                    <p class="loading-text">Scanning retinal patterns…</p>
+                </div>
+
+                <div class="result-content" id="resultContent" style="display:none">
+                    <div class="result-stage">
+                        <span class="stage-label">Diagnosed Stage</span>
+                        <h2 class="stage-name" id="stageName">—</h2>
+                        <p class="stage-desc" id="stageDesc">—</p>
+                    </div>
+
+                    <div class="confidence-block">
+                        <div class="conf-header">
+                            <span>Confidence</span>
+                            <span class="conf-value" id="confValue">—%</span>
+                        </div>
+                        <div class="conf-bar-track">
+                            <div class="conf-bar-fill" id="confBarFill"></div>
+                        </div>
+                    </div>
+
+                    <div class="breakdown">
+                        <div class="breakdown-label">All Class Probabilities</div>
+                        <div id="breakdownBars"></div>
+                    </div>
+                </div>
+
+                <div class="error-state" id="errorState" style="display:none">
+                    <span class="error-icon">⚠</span>
+                    <p id="errorMsg">An error occurred.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="footer">
+            <span>Model: EfficientNetB0 · Transfer Learning · ImageNet pretrained</span>
+            <span>Accuracy: ~78–79% on APTOS 2019 validation set</span>
+            <span>For research use only — not a clinical diagnostic tool</span>
+        </footer>
+    </main>
+
+    <script src="/static/js/app.js"></script>
+</body>
+
+</html>
