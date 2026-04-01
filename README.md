@@ -1,5 +1,5 @@
 # Diabetic-Retinopathy-prediction-
-Upload retinal image and predicts diabetic retinopathy stage.
+Upload retinal image and predict diabetic retinopathy stage.
 # RetinaScan DR — Diabetic Retinopathy Detection System
 
 ## Abstract
