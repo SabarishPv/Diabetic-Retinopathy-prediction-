@@ -428,6 +428,5 @@ For bug reports or improvements, document the issue and include:
 
 ---
 
-**Last Updated**: April 2026  
-**Maintained by**: DR_App Team  
+**Last Updated**: April 2026   
 **Version**: 1.0.0
