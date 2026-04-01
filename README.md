@@ -1,3 +1,6 @@
+#Model Download drive link
+
+https://drive.google.com/drive/folders/1iTuBUMf5_1wISsewa99769GJOrvXbYkp?usp=sharing
 # Diabetic-Retinopathy-prediction-
 Upload retinal image and predict diabetic retinopathy stage.
 # RetinaScan DR — Diabetic Retinopathy Detection System
